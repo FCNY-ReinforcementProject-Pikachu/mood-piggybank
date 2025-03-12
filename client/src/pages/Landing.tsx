@@ -1,15 +1,11 @@
 // src/pages/LandingPage.tsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import SignupForm from '../components/SignupForm';
 
 const LandingPage: React.FC = () => {
   const handleLogin = (credentials: { username: string; password: string }) => {
     console.log('Logging in with:', credentials);
-  };
-
-  const handleSignup = (credentials: { username: string; password: string }) => {
-    console.log('Signing up with:', credentials);
   };
 
   return (
@@ -28,16 +24,15 @@ const LandingPage: React.FC = () => {
       >
         Save towards your goals and track your spending habits based on mood.
       </div>
-      {/* Login and Signup forms */}
-      <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '2rem' }}>
-        <div>
-          <h2>Login</h2>
-          <LoginForm onLogin={handleLogin} />
-        </div>
-        <div>
-          <h2>Signup</h2>
-          <SignupForm onSignup={handleSignup} />
-        </div>
+      {/* Login form */}
+      <div style={{ marginTop: '2rem' }}>
+        <h2>Login</h2>
+        <LoginForm onLogin={handleLogin} />
+      </div>
+      {/* New User message with link to Signup */}
+      <div style={{ marginTop: '1rem' }}>
+        <span>New User? </span>
+        <Link to="/signup">Sign up here</Link>
       </div>
     </div>
   );
