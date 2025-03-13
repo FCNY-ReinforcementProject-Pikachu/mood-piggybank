@@ -9,30 +9,21 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '2rem' }}>
-      <h1>Welcome to Mood Piggybank</h1>
-      {/* Centered message div */}
-      <div
-        style={{
-          margin: '2rem auto',
-          maxWidth: '600px',
-          fontSize: '1.2rem',
-          padding: '1rem',
-          border: '1px solid #ccc',
-          borderRadius: '8px'
-        }}
-      >
+    <div className="container text-center py-5">
+      <h1 className="display-4 mb-4">Welcome to Mood Piggybank</h1>
+
+      <div className="alert alert-secondary mx-auto" style={{ maxWidth: '600px' }}>
         Save towards your goals and track your spending habits based on mood.
       </div>
-      {/* Login form */}
-      <div style={{ marginTop: '2rem' }}>
-        <h2>Login</h2>
+
+      <div className="mt-5">
+        <h2 className="h4">Login</h2>
         <LoginForm onLogin={handleLogin} />
       </div>
-      {/* New User message with link to Signup */}
-      <div style={{ marginTop: '1rem' }}>
+
+      <div className="mt-3">
         <span>New User? </span>
-        <Link to="/signup">Sign up here</Link>
+        <Link to="/signup" className="btn btn-link">Sign up here</Link>
       </div>
     </div>
   );
