@@ -5,6 +5,7 @@
 import React, { useState } from 'react';
 import Balance from '../components/Balance';
 import DepositMoodSaving from '../components/DepositMoodSaving';
+import GoalsWishList from '../components/GoalWishList';
 
 const Dashboard: React.FC = () => {
   const [userBalance, setUserBalance] = useState(1500.0);
@@ -25,6 +26,9 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="col-md-6 col-lg-4">
           <DepositMoodSaving onDeposit={handleDeposit} />
+        </div>
+        <div className="col-md-6 col-lg-4">
+          <GoalsWishList balance={userBalance} />
         </div>
       </main>
     </div>
