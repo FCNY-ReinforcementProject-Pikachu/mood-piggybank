@@ -1,8 +1,9 @@
 import path from 'path'
-import express from 'express'
-
+import express, { Request, Response, NextFunction } from 'express'
+import bankController from './controllers/bankController'
 const PORT = 8080
-
+const app = express()
+const __dirname = path.resolve()
 
 /**
  * handle parsing request body
@@ -13,12 +14,17 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * handle requests for static files
  */
-app.use(express.static(path.resolve(__dirname, '../client')));
+// app.use(express.static(path.resolve(__dirname, '../client')));
 
+app.get('/', (req: Request, res: Response) => {
+    res.status(200).send('Hello World!');
+  });
 
-
-app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
-
+app.post('/deposit', bankController.deposit);
+app.post('/withdraw', bankController.withdraw);
+// app.use('*', (_req: Request, res: Response): Response<any> => {
+//   return res.status(404).send('This is not the page you\'re looking for...');
+// });
 
 app.use((err, req, res, next) => {
     const defaultErr = {
@@ -35,5 +41,5 @@ app.use((err, req, res, next) => {
     console.log(`Server listening on port: ${PORT}...`);
   });
   
-   module.exports = app;
+export default app;
   
