@@ -38,7 +38,7 @@ const Goals: React.FC<GoalsProps> = ({ balance }) => {
 
   return (
     <div className="card p-4 border">
-      <h2 className="h5 mb-3">Goals/Wish List</h2>
+      <h2 className="component-title">Goals/Wish List</h2>
 
       <div className="mb-3">
         <input

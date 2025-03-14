@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: yellow; 
   }
   
   .dashboard-header {
@@ -12,7 +13,10 @@
   }
   
   .dashboard-header h3 {
-    font-size: 1.5rem;
+    font-size: 4rem;  /* Adjust size as needed */
+    color: blue;        /* Set a consistent color */
+    font-weight: 600;   /* Same weight as other titles */
+    text-align: center;
   }
   
   .dashboard-main {
@@ -38,5 +42,11 @@
   
   .card {
     min-height: 300px;
+  }
+  .component-title {
+    font-size: 1.25rem; /* Adjust for your preference */
+    color: #333;         /* Set a consistent color */
+    font-weight: 600;    /* Consistent font weight */
+    text-align: center;  /* Optional, if you want titles centered */
   }
   

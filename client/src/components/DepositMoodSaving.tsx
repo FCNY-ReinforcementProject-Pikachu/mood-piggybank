@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 interface DepositEntry {
   mood: string;
   amount: number;
@@ -15,7 +16,20 @@ const DepositMoodSaving: React.FC<DepositMoodSavingProps> = ({ onDeposit }) => {
   const [amount, setAmount] = useState('');
   const [deposits, setDeposits] = useState<DepositEntry[]>([]);
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
+
+    // fetch('localhost:8080/deposit', {
+    //   method: 'POST',
+    //   headers: {
+    //   'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({amount, mood}),
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.error(error));
+    // };
+      
     const numericAmount = parseFloat(amount);
     if (mood && numericAmount > 0) {
       const newDeposit: DepositEntry = {
@@ -33,7 +47,7 @@ const DepositMoodSaving: React.FC<DepositMoodSavingProps> = ({ onDeposit }) => {
 
   return (
     <div className="card shadow-sm border rounded-3 p-4">
-      <h2 className="card-title text-center mb-4">Deposit Mood Saving</h2>
+      <h2 className="component-title">Deposit Mood Saving</h2>
 
       <input
         type="text"

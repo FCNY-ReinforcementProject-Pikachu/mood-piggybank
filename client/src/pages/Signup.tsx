@@ -1,12 +1,32 @@
-// src/pages/SignupPage.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupForm from '../components/SignupForm';
 
 const SignupPage: React.FC = () => {
-  const handleSignup = (credentials: { username: string; password: string }) => {
-    console.log('Signing up with:', credentials);
-    // Here you would add logic to call your signup API
+  const handleSignup = async (credentials: { username: string; password: string }) => {
+    try {
+      console.log('credentials: ', credentials)
+      const response = await fetch('http://localhost:8080/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Signup successful:', data);
+        alert('Account created successfully! You can now log in.');
+      } else {
+        console.error('Signup failed:', data.error);
+        alert(`Signup failed: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   return (

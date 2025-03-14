@@ -1,11 +1,39 @@
-// src/pages/LandingPage.tsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 
 const LandingPage: React.FC = () => {
-  const handleLogin = (credentials: { username: string; password: string }) => {
-    console.log('Logging in with:', credentials);
+  const navigate = useNavigate(); // React Router's navigation hook
+
+  const handleLogin = async (credentials: { username: string; password: string }) => {
+    try {
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Login successful:', data);
+        // alert('Login successful! Welcome back.');
+
+        // Store user data in localStorage (optional)
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        // Redirect to dashboard
+        navigate('/dashboard');
+      } else {
+        console.error('Login failed:', data.error);
+        alert(`Login failed: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   return (
