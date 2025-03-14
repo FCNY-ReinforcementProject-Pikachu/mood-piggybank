@@ -1,0 +1,111 @@
+/* Main page container */
+.landing-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(to bottom right, #e0e7ff, #c7d2fe);
+}
+
+/* Brand Section */
+.landing-brand {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.landing-brand h1 {
+    font-size: 3.5rem;  /* Increased size */
+    color: #4f46e5;
+    font-weight: 800;   /* Bolder font */
+    margin-bottom: 1rem;
+
+}
+
+.landing-brand p {
+    color: #4b5563;
+    font-size: 1.3rem;  /* Slightly larger size */
+    font-weight: 600;   
+}
+
+/* Login Card */
+.landing-login {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Login Card Title */
+.landing-login h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Input Fields */
+.landing-login input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Placeholder Styling */
+.landing-login input::placeholder {
+    color: #a0a0a0;
+    font-style: italic;
+}
+
+/* Eye Icon */
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6b7280;
+}
+
+/* Sign-In Button */
+.landing-login button {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 6px;
+    background-color: #4f46e5;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+}
+
+.landing-login button:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+}
+
+.landing-login button:disabled {
+    background-color: #a5b4fc;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.landing-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.landing-footer a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.landing-footer a:hover {
+    text-decoration: underline;
+}

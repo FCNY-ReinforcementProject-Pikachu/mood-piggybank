@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
+import '../styles/LandingPage.css'; // Import the custom CSS file
 
 const LandingPage: React.FC = () => {
-  const navigate = useNavigate(); // React Router's navigation hook
+  const navigate = useNavigate();
 
   const handleLogin = async (credentials: { username: string; password: string }) => {
     try {
@@ -19,12 +20,7 @@ const LandingPage: React.FC = () => {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // alert('Login successful! Welcome back.');
-
-        // Store user data in localStorage (optional)
         localStorage.setItem('user', JSON.stringify(data.user));
-
-        // Redirect to dashboard
         navigate('/dashboard');
       } else {
         console.error('Login failed:', data.error);
@@ -37,22 +33,24 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="container text-center py-5">
-      <h1 className="display-4 mb-4">Welcome to Mood Piggybank</h1>
-
-      <div className="alert alert-secondary mx-auto" style={{ maxWidth: '600px' }}>
-        Save towards your goals and track your spending habits based on mood.
+    <div className="landing-page">
+      
+      {/* Brand Section */}
+      <div className="landing-brand">
+        <h1>Mood Piggybank</h1>
+        <p>Save towards your goals and track spending based on your mood.</p>
       </div>
 
-      <div className="mt-5">
-        <h2 className="h4">Login</h2>
+      {/* Login Section */}
+      <div className="landing-login">
+        <h2>Welcome Back</h2>
         <LoginForm onLogin={handleLogin} />
+        <div className="landing-footer">
+          <span>New User? </span>
+          <Link to="/signup">Create an account</Link>
+        </div>
       </div>
 
-      <div className="mt-3">
-        <span>New User? </span>
-        <Link to="/signup" className="btn btn-link">Sign up here</Link>
-      </div>
     </div>
   );
 };
